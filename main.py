@@ -6,12 +6,13 @@ from discord.ext import commands
 from discord.ext.commands import CommandNotFound, MissingPermissions, MissingRole, MissingRequiredArgument
 from itertools import cycle
 
-from config import TOKEN
+# from config import TOKEN
 import os
 import asyncio
 import datetime as dt
 import logging
 
+TOKEN = "NzMzOTAzNTc4NDMwOTYzODAy.XxJ6-A.df-Kxh-OugZZpOkV4My-_uRKG6g"
 
 class Pika(commands.Bot):
     def __init__(self, **kwargs):
