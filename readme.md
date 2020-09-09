@@ -2,4 +2,7 @@
 
 ## Join our server: https://discord.gg/NwtTUzE
 
-# Contributers
+# Contributes/Reports
+
+#### If you want to contribute to the bot, make sure to fork the repository and then make a pull request.
+#### If you have any questions or reports that you want to make, please feel free to ask in the server or in my github.
