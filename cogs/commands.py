@@ -4,7 +4,7 @@ import discord
 from datetime import datetime as dt
 
 
-class Commands(commands.Cog):
+class Commands(commands.Cog, name="Commands"):
     def __init__(self, bot):
         self.bot = bot
 
@@ -61,9 +61,7 @@ class Commands(commands.Cog):
         await ctx.send(embed=members)
 
     @commands.command(aliases=["av"])
-    async def avatar(self, ctx, member: discord.Member):
-        # roles = [role for role in member.roles if role.name != "@everyone"]
-        # avatar_url = ctx.author.avatar_url
+    async def avatar(self, ctx, member: commands.MemberConverter = None):
         member = member or ctx.member
         user_av = discord.Embed(color=0xffff00, timestamp=dt.utcnow())
         user_av.set_author(name=f"{ctx.author}", icon_url=member.avatar_url)
