@@ -6,7 +6,7 @@ from discord.ext import commands
 from discord.ext.commands import CommandNotFound, MissingPermissions, MissingRole, MissingRequiredArgument
 from itertools import cycle
 
-from .configer import *
+from configer import *
 import os
 import asyncio
 import datetime as dt
@@ -17,7 +17,7 @@ class Pika(commands.Bot):
         super().__init__(command_prefix=kwargs.pop('command_prefix', ('p.', 'P.', 'pika.', 'Pika.')),
                          case_insensitive=True,
                          **kwargs)
-
+her
     async def on_ready(self):
         await self.change_presence(status=discord.Status.idle, activity=discord.Game("pika prefix | p.help"))
 
