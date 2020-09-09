@@ -6,7 +6,7 @@ from discord.ext import commands
 from discord.ext.commands import CommandNotFound, MissingPermissions, MissingRole, MissingRequiredArgument
 from itertools import cycle
 
-from configer import TOKEN
+from .configer import TOKEN
 import os
 import asyncio
 import datetime as dt
