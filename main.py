@@ -6,7 +6,7 @@ from discord.ext import commands
 from discord.ext.commands import CommandNotFound, MissingPermissions, MissingRole, MissingRequiredArgument
 from itertools import cycle
 
-from configer import *
+from configer import Config
 import os
 import asyncio
 import datetime as dt
@@ -66,7 +66,7 @@ class Pika(commands.Bot):
 
     async def setup(self, **kwargs):
         try:
-            await self.start(TOKEN, **kwargs)
+            await self.start(Config.TOKEN, **kwargs)
         except KeyboardInterrupt:
             await self.close()
 
