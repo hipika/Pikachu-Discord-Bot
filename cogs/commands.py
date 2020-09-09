@@ -66,7 +66,7 @@ class Commands(commands.Cog):
         # avatar_url = ctx.author.avatar_url
         member = member or ctx.member
         user_av = discord.Embed(color=0xffff00, timestamp=dt.utcnow())
-        user_av.set_author(name=f"", icon_url=ctx.author.avatar_url)
+        user_av.set_author(name=f"{ctx.author}", icon_url=member.avatar_url)
         user_av.add_field(name="Avatar", value=f"<@{member.id}>", inline=True)
         user_av.set_image(url=member.avatar_url)
         user_av.set_footer(icon_url=ctx.author.avatar_url, text=f"Avatar requested by: {ctx.author}")
