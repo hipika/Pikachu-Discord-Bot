@@ -12,6 +12,11 @@ import asyncio
 import datetime as dt
 import logging
 
+<<<<<<< HEAD
+=======
+TOKEN = ""
+
+>>>>>>> 2a5fe1c1f007fdcfd24e1e664c04ed2a5ce76995
 class Pika(commands.Bot):
     def __init__(self, **kwargs):
         super().__init__(command_prefix=kwargs.pop('command_prefix', ('p.', 'P.', 'pika.', 'Pika.')),
