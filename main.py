@@ -12,7 +12,7 @@ import asyncio
 import datetime as dt
 import logging
 
-TOKEN = "NzMzOTAzNTc4NDMwOTYzODAy.XxJ6-A.df-Kxh-OugZZpOkV4My-_uRKG6g"
+TOKEN = ""
 
 class Pika(commands.Bot):
     def __init__(self, **kwargs):
