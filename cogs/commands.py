@@ -64,6 +64,7 @@ class Commands(commands.Cog):
     async def avatar(self, ctx, member: discord.Member):
         # roles = [role for role in member.roles if role.name != "@everyone"]
         # avatar_url = ctx.author.avatar_url
+        member = member or ctx.member
         user_av = discord.Embed(color=0xffff00, timestamp=dt.utcnow())
         user_av.set_author(name=f"", icon_url=ctx.author.avatar_url)
         user_av.add_field(name="Avatar", value=f"<@{member.id}>", inline=True)
