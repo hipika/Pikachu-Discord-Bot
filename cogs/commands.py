@@ -75,5 +75,17 @@ class Commands(commands.Cog, name="Commands"):
         """Gets python docs"""
         await ctx.send("https://docs.python.org/3/")
 
+    @commands.command(aliases=["bot_src"])
+    async def source(self, ctx):
+        """Gets the source code for the bot"""
+        url = "https://github.com/hipika/Pikachu-Discord-Bot"
+        await ctx.send(url)
+
+    @commands.command()
+    async def github(self, ctx):
+        """Pika's github"""
+        github = discord.Embed(title="Pika's Github", description="https://github.com/hipika", color=0xffff00)
+        await ctx.send(embed=github)
+
 def setup(bot):
     bot.add_cog(Commands(bot))
