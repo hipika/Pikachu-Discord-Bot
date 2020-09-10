@@ -70,6 +70,10 @@ class Commands(commands.Cog, name="Commands"):
         user_av.set_footer(icon_url=ctx.author.avatar_url, text=f"Avatar requested by: {ctx.author}")
         await ctx.send(embed=user_av)
 
+    @commands.command()
+    async def python_docs(self, ctx):
+        """Gets python docs"""
+        await ctx.send("https://docs.python.org/3/")
 
 def setup(bot):
     bot.add_cog(Commands(bot))
