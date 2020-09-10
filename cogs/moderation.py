@@ -47,7 +47,7 @@ class Moderation(commands.Cog):
 
     @commands.command(aliases=["purge"])
     @commands.guild_only()
-    @commands.has_permissions()
+    @commands.has_permissions(kick_members=True)
     async def mute(self, ctx, member: discord.Member, *, reason=None):
         """Mutes the member"""
         role = discord.utils.get(member.guild.roles, name="Muted")
@@ -66,6 +66,7 @@ class Moderation(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
+    @commands.has_permissions(kick_members=True)
     async def unmute(self, ctx, member: discord.Member, *, reason=None):
         """Unmutes the member"""
         role = discord.utils.get(member.guild.roles, name="Muted")
