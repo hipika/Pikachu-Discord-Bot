@@ -27,9 +27,9 @@ class Moderation(commands.Cog):
         embd = discord.Embed(title=f"{ctx.author.name} has banned: {member.name}", description=reason, color=0xffff00)
         await ctx.send(embed=embd)
 
-    @ban.error()
+    @ban.error
     async def ban_error(self, ctx, error):
-        if isinstance(error, MissingRequiredArgument):
+        if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(f"""Please specify a member to ban:
                             For example: **p.ban @MemberNoob**""")
 
