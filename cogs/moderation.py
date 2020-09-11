@@ -31,7 +31,7 @@ class Moderation(commands.Cog):
     async def ban_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(f"""Please specify a member to ban:
-                            For example: **p.ban @MemberNoob**""")
+                    For example: **p.ban @MemberNoob**""")
 
 
     @commands.command()
