@@ -45,7 +45,7 @@ class Moderation(commands.Cog):
         embd = discord.Embed(title=f"{ctx.author.name} has unbanned: {member.name}", description=reason, color=0xffff00)
         await ctx.send(embed=embd)
 
-    @commands.command(aliases=["purge"])
+    @commands.command()
     @commands.guild_only()
     @commands.has_permissions(kick_members=True)
     async def mute(self, ctx, member: discord.Member, *, reason=None):
@@ -64,6 +64,12 @@ class Moderation(commands.Cog):
         embd.set_author(name=f"{ctx.author.display_name}", icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embd)
 
+    @mute.error
+    async def mute_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send(f"""Please specify a member to ban: For example: **p.mute @MemberNoob**""")
+
+
     @commands.command()
     @commands.guild_only()
     @commands.has_permissions(kick_members=True)
@@ -78,7 +84,7 @@ class Moderation(commands.Cog):
 
         await ctx.send(embed=embd)
 
-    @commands.command()
+    @commands.command(aliases=["purge"])
     @commands.guild_only()
     @commands.has_permissions(manage_messages=True)
     async def clear(self, ctx, amount=10):
