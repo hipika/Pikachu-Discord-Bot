@@ -31,12 +31,12 @@ class Pika(commands.Bot):
     async def on_member_join(self, member):
         """New member joined"""
         channel = self.get_channel(747873288365277377)
-        await channel.send(f"{member.mention} has joined the server.")
+        await channel.send(f"{member} has joined the server.")
 
     async def on_member_remove(self, member):
         """Member left"""
         channel = self.get_channel(747873401095585902)
-        await channel.send(f"{member.mention} why did you leave? Please rejoin, we are glad to have you!")
+        await channel.send(f"{member} why did you leave? Please rejoin, we are glad to have you!")
 
     async def on_command_error(self, ctx, error):
         if isinstance(error, CommandNotFound):
