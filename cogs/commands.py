@@ -54,6 +54,24 @@ class Commands(commands.Cog, name="Commands"):
         await ctx.send(embed=rls)
 
     @commands.command()
+    async def kontrol_rules(self, ctx):
+        """Gets the rules for the user"""
+        rls = discord.Embed(title=f"Team Kontrol's Rules", description=f"These are the rules of this server",
+                            color=0xffff00)
+        rls.add_field(name="1.", value=f"**No Racism/Hate Speech.**", inline=True)
+        rls.add_field(name="2.", value=f"**Do not send Malicious Content.**", inline=True)
+        rls.add_field(name="3.", value=f"**Always talk in English.**", inline=True)
+        rls.add_field(name="4.", value=f"**No NSFW in any of the chats.**", inline=True)
+        rls.add_field(name="5.", value=f"**No spreading/leaking Personal Information.**", inline=True)
+        rls.add_field(name="6.", value=f"**Only self promote in the self promotion channel.**", inline=True)
+        rls.add_field(name="7.", value=f"**Please respect the Discord TOS.**", inline=True)
+        rls.add_field(name="8.", value=f"**Please only talk in the respective channels.**", inline=True)
+        rls.add_field(name="9.", value=f"**Read all the rules above.**", inline=True)
+        rls.set_footer(icon_url=ctx.author.avatar_url, text=f"Rules requested by: {ctx.author}")
+
+        await ctx.send(embed=rls)
+
+    @commands.command()
     async def member_count(self, ctx):
         """Gets the member count"""
         members = discord.Embed(title="Member count", color=0xffff00)
