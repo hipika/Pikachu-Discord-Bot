@@ -88,7 +88,7 @@ class Commands(commands.Cog, name="Commands"):
         await ctx.send(embed=github)
 
     @commands.command()
-    async def info(self, ctx, member: discord.Member=None):
+    async def info(self, ctx, member: discord.Member = None):
         """Gets the info about a user"""
         member = ctx.author if not member else member
         roles = [role for role in member.roles if role.name != "@everyone"]
@@ -101,12 +101,14 @@ class Commands(commands.Cog, name="Commands"):
         info.append(f"\n**Roles[{len(roles)}]**: " + " ".join([role.mention for role in roles]))
         info.append(f"\n**Bot**: {member.bot}")
 
-        user = discord.Embed(title=f"{member.display_name}", color=0xffff00, description=" ".join(info), timestamp=ctx.message.created_at)
+        user = discord.Embed(title=f"{member.display_name}", color=0xffff00, description=" ".join(info),
+                             timestamp=ctx.message.created_at)
         user.set_author(name=f"Info: {member}", icon_url=member.avatar_url)
         user.set_thumbnail(url=member.avatar_url)
         user.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=user)
+
 
 def setup(bot):
     bot.add_cog(Commands(bot))
