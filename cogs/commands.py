@@ -21,7 +21,7 @@ class Commands(commands.Cog, name="Commands"):
 
     @commands.command(aliases=["msg", "msgs"])
     async def messages(self, ctx, member: discord.Member = None):
-        """Gets how many messgages a member has sent"""
+        """Gets how many messages a member has sent"""
 
         member = ctx.author if member is None else member
 
