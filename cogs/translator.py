@@ -14,7 +14,7 @@ class Translate(commands.Cog, name="Commands"):
 
     @commands.command(aliases=["ts"])
     async def translate(self, ctx, *, text):
-        """Translates something :>"""
+        """Translates whatever input you put into English"""
         output = self.translator.translate(str(text), src="auto", dest="en").text
         embed = discord.Embed()
         embed.add_field(name="Translated", value=f"{output}", inline=True)
