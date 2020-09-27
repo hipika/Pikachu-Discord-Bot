@@ -20,5 +20,6 @@ class Translate(commands.Cog, name="Commands"):
         embed.add_field(name="Translated", value=f"{output}", inline=True)
         await ctx.send(embed=embed)
 
+
 def setup(bot):
     bot.add_cog(Translate(bot))
