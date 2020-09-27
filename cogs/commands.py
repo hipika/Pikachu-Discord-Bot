@@ -79,8 +79,9 @@ class Commands(commands.Cog, name="Commands"):
         await ctx.send(embed=members)
 
     @commands.command(aliases=["av"])
-    async def avatar(self, ctx, member: commands.MemberConverter = None):
+    async def avatar(self, ctx, member: discord.Member=None):
         """Profile picture of a member"""
+        member = ctx.author if not member else member
         embed = discord.Embed()
         embed.set_author(name=f"{ctx.author}", icon_url=member.avatar_url)
         embed.set_footer(text=f"Requested by {ctx.author.display_name}")
