@@ -84,6 +84,7 @@ class Commands(commands.Cog, name="Commands"):
         member = ctx.author if not member else member
         embed = discord.Embed()
         embed.set_author(name=f"{ctx.author}", icon_url=member.avatar_url)
+        embed.add_field(name="Avatar", value=f"<@{member.id}>", inline=True)
         embed.set_footer(text=f"Requested by {ctx.author.display_name}")
         embed.set_image(url=member.avatar_url)
         await ctx.send(embed=embed)
