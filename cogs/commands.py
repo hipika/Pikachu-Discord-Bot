@@ -81,13 +81,11 @@ class Commands(commands.Cog, name="Commands"):
     @commands.command(aliases=["av"])
     async def avatar(self, ctx, member: commands.MemberConverter = None):
         """Profile picture of a member"""
-        member = member or ctx.member
-        user_av = discord.Embed(color=0xffff00, timestamp=dt.utcnow())
-        user_av.set_author(name=f"{ctx.author}", icon_url=member.avatar_url)
-        user_av.add_field(name="Avatar", value=f"<@{member.id}>", inline=True)
-        user_av.set_image(url=member.avatar_url)
-        user_av.set_footer(icon_url=ctx.author.avatar_url, text=f"Avatar requested by: {ctx.author}")
-        await ctx.send(embed=user_av)
+        embed = discord.Embed()
+        embed.set_author(name=f"{ctx.author}", icon_url=member.avatar_url)
+        embed.set_footer(text=f"Requested by {ctx.author.display_name}")
+        embed.set_image(url=member.avatar_url)
+        await ctx.send(embed=embed)
 
     @commands.command()
     async def python_docs(self, ctx):
