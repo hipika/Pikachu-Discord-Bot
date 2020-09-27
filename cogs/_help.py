@@ -106,32 +106,32 @@ class Help(commands.HelpCommand):
 
         await self.context.send(embed=embed)
 
-    # async def send_command_help(self, command):
-    #     embed = self.embedify(title=self.full_command_path(command, include_prefix=True),
-    #                           description=command.help or "*No specified command description.*")
-    #
-    #     # Testing purposes only.
-    #     try:
-    #         await command.can_run(self.context)
-    #     except Exception as error:
-    #         error = getattr(error, 'original', error)
-    #
-    #         if isinstance(error, commands.MissingPermissions):
-    #             missing_permissions = error.missing_perms
-    #         elif isinstance(error, (commands.MissingRole, commands.MissingAnyRole)):
-    #             missing_permissions = error.missing_roles or [error.missing_role]
-    #         else:
-    #             await self.context.bot.get_user(144112966176997376).send(
-    #                 f'send_command_help\n\n{self.context.author} raised this error that you didnt think of:\n'
-    #                 f'{type(error).__name__}\n\nChannel: {self.context.channel.mention}'
-    #             )
-    #             missing_permissions = None
-    #
-    #         if missing_permissions is not None:
-    #             embed.add_field(name='You are missing these permissions to run this command:',
-    #                             value=self.list_to_string(missing_permissions))
-    #
-    #     await self.context.send(embed=embed)
+    async def send_command_help(self, command):
+        embed = self.embedify(title=self.full_command_path(command, include_prefix=True),
+                              description=command.help or "*No specified command description.*")
+
+        # Testing purposes only.
+        try:
+            await command.can_run(self.context)
+        except Exception as error:
+            error = getattr(error, 'original', error)
+
+            if isinstance(error, commands.MissingPermissions):
+                missing_permissions = error.missing_perms
+            elif isinstance(error, (commands.MissingRole, commands.MissingAnyRole)):
+                missing_permissions = error.missing_roles or [error.missing_role]
+            else:
+                await self.context.bot.get_user(144112966176997376).send(
+                    f'send_command_help\n\n{self.context.author} raised this error that you didnt think of:\n'
+                    f'{type(error).__name__}\n\nChannel: {self.context.channel.mention}'
+                )
+                missing_permissions = None
+
+            if missing_permissions is not None:
+                embed.add_field(name='You are missing these permissions to run this command:',
+                                value=self.list_to_string(missing_permissions))
+
+        await self.context.send(embed=embed)
 
     @staticmethod
     def list_to_string(_list):
