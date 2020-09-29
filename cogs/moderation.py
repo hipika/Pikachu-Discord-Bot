@@ -7,16 +7,17 @@ import logging
 
 class Moderation(commands.Cog):
     def __init__(self, bot):
-        @commands.command()
-        @commands.guild_only()
-        @commands.has_permissions(kick_members=True)
-        async def kick(self, ctx, member: discord.Member, *, reason=None):
-            """Kicks the member"""
-            await ctx.guild.kick(user=member, reason=reason)
+        self.bot = bot
+    @commands.command()
+    @commands.guild_only()
+    @commands.has_permissions(kick_members=True)
+    async def kick(self, ctx, member: discord.Member, *, reason=None):
+        """Kicks the member"""
+        await ctx.guild.kick(user=member, reason=reason)
 
-            embd = discord.Embed(title=f"{ctx.author.name} has kicked: {member.name}", description=reason,
+        embd = discord.Embed(title=f"{ctx.author.name} has kicked: {member.name}", description=reason,
                                  color=0xffff00)
-            await ctx.send(embed=embd)
+        await ctx.send(embed=embd)
 
     @commands.command()
     @commands.guild_only()
