@@ -130,12 +130,7 @@ class Commands(commands.Cog, name="Commands"):
 
     @commands.command()
     async def lines(self, ctx):
-        await ctx.send(f"""You don't"""
-                        """need"""
-                        """to"""
-                        """type like"""
-                        """this!"""
-                        """Just type things in 1 line.""")
+        await ctx.send(f"""You don't\nneed\nto\ntype like\nthis!\nJust type things in 1 line.""")
 
 
 def setup(bot):
